@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+ <mapper namespace="com.totra.spring.test.mybatis.test01.repository.RealEstateRepository">
+ 	<select id="getIdSelect" resultType="com.totra.spring.test.mybatis.test01.domain.RealEstate" parameterType="int">	
+ 		SELECT
+ 			`id`
+ 			,`realtorId`
+ 			,`address`
+ 			,`area`
+ 			,`type`
+ 			,`price`
+ 			,`rentPrice`
+ 			,`createdAt`
+ 			,`updatedAt`
+ 		FROM `real_estate`
+ 		WHERE `id`=#{id};
+ 	</select>
+ 	
+ 	<select id="getRentPriceSelect" resultType="com.totra.spring.test.mybatis.test01.domain.RealEstate" parameterType="int">
+ 		SELECT
+ 			`id`
+ 			,`realtorId`
+ 			,`address`
+ 			,`area`
+ 			,`type`
+ 			,`price`
+ 			,`rentPrice`
+ 			,`createdAt`
+ 			,`updatedAt`
+ 		FROM `real_estate`
+ 		WHERE `rentPrice`<![CDATA[<=]]>#{rentPrice};
+ 	</select>
+ 	
+ 	<select id="getTwoParamSelect" resultType="com.totra.spring.test.mybatis.test01.domain.RealEstate" parameterType="int">
+ 		SELECT
+ 			`id`
+ 			,`realtorId`
+ 			,`address`
+ 			,`area`
+ 			,`type`
+ 			,`price`
+ 			,`rentPrice`
+ 			,`createdAt`
+ 			,`updatedAt`
+ 		FROM `real_estate`
+ 		WHERE `area` <![CDATA[>=]]>#{area} <![CDATA[&&]]> `price`<![CDATA[<=]]>#{price};
+ 	</select>
+ </mapper>

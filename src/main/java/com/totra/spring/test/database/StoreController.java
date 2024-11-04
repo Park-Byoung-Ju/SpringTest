@@ -11,13 +11,13 @@ import com.totra.spring.test.database.domain.Store;
 import com.totra.spring.test.database.service.StoreService;
 
 @Controller
-public class Test01Controller {
+public class StoreController {
 	@Autowired
 	private StoreService storeService;
 	
-	@ResponseBody
 	@RequestMapping("/db/store/list")
-	public List<Store> storeList() {
+	@ResponseBody
+	public List<Store> getStoreList(){
 		List<Store> storeList = storeService.getStoreList();
 		return storeList;
 	}

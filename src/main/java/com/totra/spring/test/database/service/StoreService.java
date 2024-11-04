@@ -11,7 +11,7 @@ import com.totra.spring.test.database.repository.StoreRepository;
 @Service
 public class StoreService {
 	@Autowired
-	StoreRepository storeRepository;
+	private StoreRepository storeRepository;
 	
 	public List<Store> getStoreList(){
 		List<Store> storeList = storeRepository.selectStoreList();
