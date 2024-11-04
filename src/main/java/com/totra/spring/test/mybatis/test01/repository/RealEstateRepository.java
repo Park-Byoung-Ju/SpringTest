@@ -12,7 +12,7 @@ public interface RealEstateRepository {
 
 	public RealEstate getIdSelect(@Param("id") int id);
 	
-	public List<RealEstate> getRentPriceSelect(@Param("rentPrice") int rentPrice);
+	public List<RealEstate> getRentPriceSelect(@Param("rentPrice") int rent);
 	
 	public List<RealEstate> getTwoParamSelect(@Param("area") int area, @Param("price") int price);
 }

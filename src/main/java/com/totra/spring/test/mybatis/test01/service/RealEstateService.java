@@ -20,8 +20,8 @@ public class RealEstateService {
 	}
 	
 	
-	 public List<RealEstate> getRentRealEstate(int rentPrice){ 
-		 List<RealEstate> realEstateList = realEstateRepository.getRentPriceSelect(rentPrice); 
+	 public List<RealEstate> getRentRealEstate(int rent){ 
+		 List<RealEstate> realEstateList = realEstateRepository.getRentPriceSelect(rent); 
 		 return realEstateList; 
 	 }
 	 
