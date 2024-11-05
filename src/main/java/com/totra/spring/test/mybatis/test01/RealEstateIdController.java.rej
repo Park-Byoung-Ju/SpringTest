@@ -1,0 +1,9 @@
+diff a/src/main/java/com/totra/spring/test/mybatis/test01/RealEstateIdController.java b/src/main/java/com/totra/spring/test/mybatis/test01/RealEstateIdController.java	(rejected hunks)
+@@ -38,6 +38,7 @@
+ 	
+ 	@ResponseBody
+ 	@RequestMapping("/3")
++	public List<RealEstate> getTwoParamRealEstate(@RequestParam(name="area", required=false, defaultValue="0") int area, @RequestParam(name="price", required=false, defaultValue="0") int price){
+ 		List<RealEstate> realEstateList = realEstateService.getTwoParamRealEstate(area, price);
+ 		
+ 		return realEstateList;
