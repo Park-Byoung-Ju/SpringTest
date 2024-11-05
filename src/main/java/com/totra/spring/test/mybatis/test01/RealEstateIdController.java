@@ -38,7 +38,7 @@ public class RealEstateIdController {
 	
 	@ResponseBody
 	@RequestMapping("/3")
-	public List<RealEstate> getTwoParamRealEstate(@RequestParam(name="area", required=false, defaultValue="0") int area, @RequestParam(name="price", required=false, defaultValue="0") int price){
+	public List<RealEstate> getTwoParamRealEstate(@RequestParam("area") int area, @RequestParam("price") int price){
 		List<RealEstate> realEstateList = realEstateService.getTwoParamRealEstate(area, price);
 		
 		return realEstateList;
