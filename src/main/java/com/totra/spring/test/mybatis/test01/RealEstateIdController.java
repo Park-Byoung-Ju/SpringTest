@@ -37,7 +37,7 @@ public class RealEstateIdController {
 	}
 	
 	@ResponseBody
-	@RequestMapping("/3")
+	@RequestMapping("/3") // name : 파라미터 키워드, required : null을 허용하는지 여부, defaultValue : 파라미터 값이 null일때 자동으로 들어가는 값
 	public List<RealEstate> getTwoParamRealEstate(@RequestParam(name="area", required=false, defaultValue="0") int area, @RequestParam(name="price", required=false, defaultValue="0") int price){
 		List<RealEstate> realEstateList = realEstateService.getTwoParamRealEstate(area, price);
 		

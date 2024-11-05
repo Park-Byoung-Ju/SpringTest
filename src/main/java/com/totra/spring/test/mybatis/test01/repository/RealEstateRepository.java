@@ -14,5 +14,6 @@ public interface RealEstateRepository {
 	
 	public List<RealEstate> getRentPriceSelect(@Param("rentPrice") int rent);
 	
-	public List<RealEstate> getTwoParamSelect(@Param("area") int area, @Param("price") int price);
+	public List<RealEstate> getTwoParamSelect(@Param("area") int area, 
+											  @Param("price") int price);
 }

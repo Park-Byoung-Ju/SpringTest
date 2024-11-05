@@ -34,7 +34,9 @@
  		WHERE `rentPrice`<![CDATA[<=]]>#{rentPrice};
  	</select>
  	
- 	<select id="getTwoParamSelect" resultType="com.totra.spring.test.mybatis.test01.domain.RealEstate" parameterType="int">
+ 	<select id="getTwoParamSelect" 
+ 	resultType="com.totra.spring.test.mybatis.test01.domain.RealEstate" 
+ 	parameterType="map"> <!-- parameterType을 하나의 자료형만 사용하면 자료형을 써도된다 -->
  		SELECT
  			`id`
  			,`realtorId`
@@ -46,7 +48,8 @@
  			,`createdAt`
  			,`updatedAt`
  		FROM `real_estate`
- 		WHERE `area` <![CDATA[>=]]>#{area} <![CDATA[&&]]> `price`<![CDATA[<=]]>#{price}
+ 		WHERE `area` <![CDATA[>=]]>#{area} AND `price`<![CDATA[<=]]>#{price}
  		ORDER BY `createdAt` DESC;
+ 		<!-- CDATA 이외에도 &gt &lt로 사용해도 된다. -->
  	</select>
  </mapper>
