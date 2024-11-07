@@ -57,7 +57,7 @@ public class SellerController {
 	}
 	
 	@GetMapping("/idserach")
-	public String userId(@RequestParam(required=true) Integer id
+	public String userId(@RequestParam(value="id", required=false) Integer id
 			, Model model) {
 		
 		if(id == null) {
