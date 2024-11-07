@@ -13,4 +13,6 @@ public interface SellerRepository {
 						,@Param("temperature") double temperature);
 	
 	public Seller LastSelectUser();
+	
+	public Seller userId(@Param("id") int id);
 }

@@ -49,4 +49,25 @@ public class SellerController {
 		
 		return "mvc/sellerinput";
 	}
+	
+	@RequestMapping("/sellersearch")
+	public String sellerSearchForm() {
+		
+		return "mvc/sellersearch";
+	}
+	
+	@GetMapping("/idserach")
+	public String userId(@RequestParam(required=true) Integer id
+			, Model model) {
+		
+		if(id == null) {
+			return "redirect:/mvc/test01/lastinfo";
+		}
+		
+		Seller seller = sellerService.userId(id);
+		
+		model.addAttribute("title", "사용자 정보");
+		model.addAttribute("seller", seller);
+		return "mvc/sellerinfo";
+	}
 }

@@ -16,6 +16,18 @@
 		LIMIT 1;
 	</select>
 	
+	<select id="userId" resultType="com.totra.spring.test.mvc.test01.domain.Seller">
+		SELECT
+			`id`
+			,`nickname`
+			,`temperature`
+			,`profileImage`
+			,`createdAt`
+			,`updatedAt`
+		FROM `seller`
+		WHERE `id`=#{id};
+	</select>
+	
 	<insert id="UserInsert" parameterType="map">
 		INSERT INTO `seller`
 		(

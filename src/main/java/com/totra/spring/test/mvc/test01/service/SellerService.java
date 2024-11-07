@@ -26,4 +26,10 @@ public class SellerService {
 		
 		return seller;
 	}
+	
+	public Seller userId(int id) {
+		Seller seller = sellerRepository.userId(id);
+		
+		return seller;
+	}
 }
