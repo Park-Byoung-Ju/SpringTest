@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.totra.spring.test.ajax.repository.BookmarkRepository">
+	<insert id="bookmarkInsert" parameterType="map" >
+		INSERT INTO `bookmark`
+		(
+			`name`
+			, `url`
+		)
+		VALUE
+		(
+			#{name}
+			, #{url}
+		);
+	</insert>
+	
+	<select id="allData" resultType="com.totra.spring.test.ajax.domain.Bookmark">
+		SELECT 
+			`id`
+			,`name`
+			,`url`
+			,`createdAt`
+			,`updatedAt`
+		FROM `bookmark`
+		ORDER BY `id` DESC;
+	</select>
+	
+	<select id="urlCheck" resultType="int" parameterType="String">
+		SELECT 
+			COUNT(*)
+		FROM `bookmark`
+		WHERE `url`=#{url};
+	</select>
+	
+	<delete id="idDelete" parameterType="int">
+		DELETE FROM `bookmark`
+		WHERE `id`=#{id};
+	</delete>
+</mapper>
