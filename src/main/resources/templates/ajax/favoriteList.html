@@ -25,7 +25,10 @@
 					<td th:text="${status.count}">No.</td>
 					<td th:text="${favorite.name}">이름</td>
 					<td th:text="${favorite.url}">주소</td>
+					<!-- 
 					<td><button class="btn btn-danger deleteBtn" th:value="${favorite.id}">삭제</button></td>
+					-->
+					<td><a class="btn btn-danger deleteBtn" th:id="${favorite.id}">삭제</a></td>
 				</tr>
 			</tbody>
 		</table>
@@ -38,7 +41,8 @@
 <script>
 	$(document).ready(function(){
 		$(".deleteBtn").on("click", function(){
-			let id = $(this).val();
+			// let id = $(this).val();
+			let id = $(this).attr("id");
 
 			$.ajax({
 				type:"get"

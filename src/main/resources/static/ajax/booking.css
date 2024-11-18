@@ -1,0 +1,17 @@
+@charset "UTF-8";
+
+nav{
+	background-color:rgb(227, 163, 44);
+}
+
+nav > ul > li:hover{
+	background-color:red;
+}
+
+footer{
+	color:gray;
+}
+
+.item-center{
+	margin: 0 auto 0 auto;
+}

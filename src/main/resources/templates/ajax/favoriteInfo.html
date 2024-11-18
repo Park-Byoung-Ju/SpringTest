@@ -24,7 +24,6 @@
 			</div>
 		</div>
 		<button id="btn" class="btn btn-success w-50 mt-3">추가</button>
-		<button id="idcheck" type="button" value="1">value확인</button>
 	</div>
 
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
@@ -56,6 +55,12 @@
 				alert("주소가 http:// 또는 https://로 시작해야합니다.");
 				return false;
 			}
+		
+			/*
+			if(!url.startsWith("http://") && !url.startsWith("https://")){
+				
+			}
+			*/
 
 			
 			$.ajax({

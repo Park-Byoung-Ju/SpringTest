@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.14.0/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="/ajax/booking.css">
+<link rel="stylesheet" href="/ajax/bookingMain.css">
+<title>Insert title here</title>
+</head>
+<body>
+	<div class="container">
+		<header>
+			<div class="text-center"><a href="/booking/main" class="display-4 text-dark">통나무 팬션</a></div>
+			
+			<nav class="mt-3">
+				<ul class="nav nav-fill">
+					<li class="nav-item"><a href="#" class="nav-link text-white">펜션소개</a></li>
+					<li class="nav-item"><a href="#" class="nav-link text-white">객실보기</a></li>
+					<li class="nav-item"><a href="/booking/input" class="nav-link text-white">예약하기</a></li>
+					<li class="nav-item"><a href="/booking/list" class="nav-link text-white">예약목록</a></li>
+				</ul>
+			</nav>
+		</header>
+		
+		<section>
+			<div>
+				<img class="w-100" id="banner">
+			</div>
+			
+			<article class="d-flex artice-h">
+                <div class="col-4 d-flex justify-content-center align-items-center bg-sienna">
+                    <p class="text-white display-4 h-50">실시간<br>예약하기</p>
+                </div>
+
+                <div class="col-5 bg-chocholate">
+                	<h3 class="text-white mt-3">예약확인</h3>
+     				<div class="text-center text-white col-10">
+     					<div class="d-flex">
+     						<lable class="col-4">이름</lable> <input class="form-control col-8" id="name" type="text">
+     					</div>
+     					
+     					<div class="d-flex mt-2">
+     						<label class="col-4">전화번호</label> <input class="form-control col-8" id="phoneNumber" type="text">
+     					</div>
+     					
+     					<div class="d-flex mt-2">
+     						<label class="col-4">예약날짜</label> <input class="form-control col-8" id="date" type="text" readonly>
+     					</div>
+     					
+	     				<div class="d-flex justify-content-end mt-2">
+		     				<button id="searchBtn" class="btn btn-success ">확인하기</button>	
+	     				</div>
+     				</div>
+     				
+                </div>
+
+                <div class="col-3 d-flex justify-content-center align-items-center bg-sienna">
+                    <div>
+                        <h2 class="text-white">예약문의 : <br>010-<br>0000-1111</h2>
+                    </div>
+                </div>
+            </article>
+		</section>
+		
+		<footer class="small mt-3">
+				<div>제주특별자치도 제주시 예월읍</div>
+                <div>사업자등록번호: 111-22-255222 / 농어촌민박사업자지정 / 대표:김동욱</div>
+                <div>Copyright 2025 tongnamu All right reserved</div>
+		</footer>
+	</div>
+
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/ui/1.14.0/jquery-ui.js"></script>
+<script>
+	$(document).ready(function(){
+		var img = ["http://marondal.com/material/images/dulumary/web/front/jquery/test06_banner1.jpg",
+            "http://marondal.com/material/images/dulumary/web/front/jquery/test06_banner2.jpg",
+            "http://marondal.com/material/images/dulumary/web/front/jquery/test06_banner3.jpg",
+            "http://marondal.com/material/images/dulumary/web/front/jquery/test06_banner4.jpg"
+        ]
+		var imgIndex = 0;
+        $("#banner").attr("src",img[imgIndex]);
+        setInterval(function(){
+            imgIndex++;
+            if(imgIndex == 4){
+                
+                imgIndex = 0;
+            }
+            $("#banner").attr("src",img[imgIndex]);
+            
+        }, 3000);
+        
+        $("#date").datepicker({
+            dateFormat:"yy-mm-dd",
+            minDate: 0,
+            dayNamesMin: ['일','월','화','수','목','금','토'],
+            monthNames: ['1월','2월','3월','4월','5월','6월',
+            '7월','8월','9월','10월','11월','12월']
+        });
+        
+        $("#searchBtn").on("click", function(){
+        	let name = $("#name").val();
+        	let phoneNumber = $("#phoneNumber").val();
+        	let date = $("#date").val();
+        	
+        	if(name.length == 0){
+        		alert("이름을 입력해주세요");
+        		return false;
+        	}
+        	
+        	if(phoneNumber.length == 0){
+        		alert("전화번호를 입력해주세요");
+        		return false;
+        	}
+        	
+        	if(date.length == 0){
+        		alert("날짜를 선택해주세요");
+        		return false;
+        	}
+        	
+        	$.ajax({
+				type:"get"
+				,url:"/booking/bookingSearch"
+				,data:{"name":name
+					,"phoneNumber":phoneNumber
+					,"date":date}
+				,success:function(response){
+
+					if(response.result != null){						
+						alert("이름 : " + response.result.name + "\n"
+							+ "날짜 : " + response.result.date.split("T")[0] + "\n"
+							+ "일수 : " + response.result.day + "\n"
+							+ "인원 : " + response.result.headcount + "\n"
+							+ "상태 : " + response.result.state);
+					}else{
+						alert("조회된 정보가 없습니다.");
+					}
+					
+				}
+				,error:function(){
+					alert("서버 오류");
+				}
+			});        	
+        });
+	});
+</script>
+</body>
+</html>
