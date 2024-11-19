@@ -1,6 +1,5 @@
 package com.totra.spring.test.ajax;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -43,7 +42,7 @@ public class BookingController {
 	
 	@ResponseBody
 	@PostMapping("/create")
-	public Map<String, String> create(@RequestParam("name") String name
+	public Map<String, Boolean> create(@RequestParam("name") String name
 						,@RequestParam("date") @DateTimeFormat(pattern = "yyyy-MM-dd") Date date
 						,@RequestParam("day") int day
 						,@RequestParam("headcount") int headcount
@@ -51,12 +50,12 @@ public class BookingController {
 		
 		boolean isTrue = bookingService.setCreateBooking(name, date, day, headcount, phoneNumber);
 		
-		Map<String, String> result = new HashMap<>();
+		Map<String, Boolean> result = new HashMap<>();
 		
-		if(isTrue == true) {			
-			result.put("result", "success");
+		if(isTrue) {			
+			result.put("result", isTrue);
 		}else {
-			result.put("result", "fail");
+			result.put("result", isTrue);
 		}
 		
 		
@@ -85,7 +84,7 @@ public class BookingController {
 	// Boolean
 	@ResponseBody
 	@GetMapping("/bookingSearch")
-	public Map<String, Booking> getBookingInfo(@RequestParam("name") String name
+	public Map<String, Object> getBookingInfo(@RequestParam("name") String name
 											,@RequestParam("phoneNumber") String phoneNumber
 											,@RequestParam("date") @DateTimeFormat(pattern = "yyyy-MM-dd") Date date){
 		
@@ -93,7 +92,14 @@ public class BookingController {
 		
 		Booking booking = bookingService.getBookingInfo(name, phoneNumber, date);
 		
-		Map<String, Booking> result = new HashMap<>();
+		Map<String, Object> result = new HashMap<>();
+		
+		if(booking != null) {
+			result.put("bool", true);
+			
+		}else {
+			result.put("bool", false);
+		}
 		
 		result.put("result", booking);
 

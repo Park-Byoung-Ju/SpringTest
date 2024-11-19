@@ -2,7 +2,6 @@ package com.totra.spring.test.ajax.domain;
 
 import java.time.LocalDateTime;
 
-import org.springframework.format.annotation.DateTimeFormat;
 
 public class Booking {
 

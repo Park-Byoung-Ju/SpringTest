@@ -48,6 +48,9 @@
 						<td th:if="${booking.state} == '확정'" th:text="${booking.state}" class="text-success">예약상태</td>
 						<td th:unless="${booking.state} == '확정'" th:text="${booking.state}" class="text-primary">예약상태</td>
 						<td><button class="btn btn-danger deleteBtn" th:value="${booking.id}">삭제</button>
+						<!-- data 속성 => data-속성이름 => 변수처럼 쓸수있다 -->
+						<!-- th:data-favorite-id="${favorite.id}" -->
+						<!-- jquery로 가져올땐 .val() 대신 .data()로 가져온다 -->
 					</tr>
 				</tbody>
 			</table>

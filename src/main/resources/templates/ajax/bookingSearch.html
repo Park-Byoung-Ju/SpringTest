@@ -129,7 +129,7 @@
 					,"date":date}
 				,success:function(response){
 
-					if(response.result != null){						
+					if(response.bool){						
 						alert("이름 : " + response.result.name + "\n"
 							+ "날짜 : " + response.result.date.split("T")[0] + "\n"
 							+ "일수 : " + response.result.day + "\n"
