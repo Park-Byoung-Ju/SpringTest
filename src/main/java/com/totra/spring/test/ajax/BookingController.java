@@ -95,10 +95,10 @@ public class BookingController {
 		Map<String, Object> result = new HashMap<>();
 		
 		if(booking != null) {
-			result.put("bool", true);
+			result.put("isTrue", true);
 			
 		}else {
-			result.put("bool", false);
+			result.put("isTrue", false);
 		}
 		
 		result.put("result", booking);
