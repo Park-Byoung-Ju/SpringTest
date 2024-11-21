@@ -52,6 +52,50 @@
 <script>
 	$(document).ready(function(){
 		
+		$("#phoneNumber").on("input", function(){
+			let phoneNumber = $("#phoneNumber").val();
+			
+			if(phoneNumber.length > 13){
+				phoneNumber = phoneNumber.substring(0, 13);
+			}
+			
+			if(phoneNumber.length <= 12){
+				phoneNumber = phoneNumber.replace(/-/g, "");
+			}
+			
+			if(isNaN(phoneNumber)){
+				phoneNumber = phoneNumber.substring(0, phoneNumber.length - 1);			
+			}
+			
+			if(phoneNumber.length == 11){
+				phoneNumber = phoneNumber.substring(0, 3) + "-" + phoneNumber.substring(3, 7) + "-" + phoneNumber.substring(7);
+			}
+			
+			$("#phoneNumber").val(phoneNumber);
+		});
+		
+		$("#headcount").on("input", function(){
+
+			let headcount = $("#headcount").val();
+			
+			if(isNaN(headcount)){
+				headcount = headcount.substring(0, headcount.length - 1);
+			}
+
+			$("#headcount").val(headcount);
+		});
+		
+		$("#day").on("input", function(){
+
+			let day = $("#day").val();
+			
+			if(isNaN(day)){
+				day = day.substring(0, day.length - 1);
+			}
+
+			$("#day").val(day);
+		});
+		
 		$("#date").datepicker({
             dateFormat:"yy-mm-dd",
             minDate: 0,

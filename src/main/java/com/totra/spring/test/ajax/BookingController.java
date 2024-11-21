@@ -40,6 +40,18 @@ public class BookingController {
 		return "ajax/bookingInput";
 	}
 	
+	// 언제, 어디서, 무엇을, 어떻게, 왜
+	// 언제 : 사용자가 예약정보를 입력하고 저장을 수행하고자 할때
+	// 어디서 : 서버
+	// input (request) : 예약에 필요한 예약자 정보
+	// 기능 : 
+	// 무엇을 : 예약 정보를 저장한다.
+	// 어떻게 : 예약정보를 booking 테이블에 insert 한다
+	// 왜 : 테이블에 저장해야 나중에 예약 목록을 얻어 올 수 있으니까
+	// output (response) : 저장 결과
+	// 성공 : {"result","success"} 
+	// 실패 : {"result", "fail"}
+	
 	@ResponseBody
 	@PostMapping("/create")
 	public Map<String, Boolean> create(@RequestParam("name") String name
@@ -79,6 +91,16 @@ public class BookingController {
 	public String mainPage() {
 		return "ajax/bookingSearch";
 	}
+	
+	
+	// 언제 : 사용자가 이름과 전화번호를 입력하고 조회를 요청했을때
+	// 어디서 : 서버에서
+	// input : 예약자 이름, 전화 번호
+	// 기능 : 
+	// 무엇을 : 이름과 전화번호가 일치하는 사용자 정보 조회
+	// 어떻게 : booking 테이블에 이름과 전화번호를 조건으로 일치하는 행 조회
+	// 왜 : 예약자의 모든 정보가 필요하니가
+	// output : 예약자 정보
 	
 	
 	// Boolean
