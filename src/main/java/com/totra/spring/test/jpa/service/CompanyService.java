@@ -43,11 +43,22 @@ public class CompanyService {
 		Company bubblePang = optionalBubblePang.orElse(null);
 		
 		if(bubblePang != null) {
-			companyRepository.delete(bubblePang);
-			return "Entity로 삭제!";
-		}else {
 			companyRepository.deleteById(id);
-			return "id로 삭제!";
+			return "삭제 완료!";
+		}else {
+
+			return "삭제할 항목이 없다!";
 		}
+
+		/*
+		if(optionalBubblePang.isPresent()) {
+			// null이 아닐떄
+		}else {
+			// null ㅣㅇㄹ떄
+		}
+		*/
+		
+		// 람다식을 활용한 것
+		// optionalCompany.ifPresent(company -> companyRepository.delete);
 	}
 }
